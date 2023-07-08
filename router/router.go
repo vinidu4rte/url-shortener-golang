@@ -2,16 +2,12 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
-	"net/http"
+	"github.com/vinidu4rte/url-shortener-golang/handler"
 )
 
 func Handle(app *gin.Engine) {
 	v1 := app.Group("/api/v1")
 	{
-		v1.GET("/ping", func(ctx *gin.Context) {
-			ctx.JSON(http.StatusOK, gin.H{
-				"message": "pong",
-			})
-		})
+		v1.GET("/ping", handler.PingHandler)
 	}
 }
