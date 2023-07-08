@@ -5,10 +5,13 @@ import (
 	"net/http"
 )
 
-func Handle(router *gin.Engine) {
-	router.GET("/ping", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{
-			"message": "pong",
+func Handle(app *gin.Engine) {
+	v1 := app.Group("/api/v1")
+	{
+		v1.GET("/ping", func(ctx *gin.Context) {
+			ctx.JSON(http.StatusOK, gin.H{
+				"message": "pong",
+			})
 		})
-	})
+	}
 }
