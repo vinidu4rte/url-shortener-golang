@@ -3,18 +3,15 @@ package main
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
-	"net/http"
+	"github.com/vinidu4rte/url-shortener-golang/router"
 )
 
 func main() {
-	router := gin.Default()
-	router.GET("/ping", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{
-			"message": "pong",
-		})
-	})
+	app := gin.Default()
 
-	err := router.Run()
+	router.Handle(app)
+
+	err := app.Run()
 
 	if err != nil {
 		fmt.Println("An error occurred in gin run.")
