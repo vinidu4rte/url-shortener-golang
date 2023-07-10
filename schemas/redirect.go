@@ -4,7 +4,7 @@ import "gorm.io/gorm"
 
 type Redirect struct {
 	gorm.Model
-	OriginalUrl string
-	ShortUrl    string
-	UrlHits     int64
+	OriginalUrl string `json:"originalUrl;unique_index"`
+	ShortUrl    string `json:"shortUrl;unique_index"`
+	UrlHits     int64  `json:"urlHits" gorm:"default: 0"`
 }
