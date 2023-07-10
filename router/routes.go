@@ -6,8 +6,10 @@ import (
 )
 
 func InitializeRoutes(app *gin.Engine) {
+	handler.InitializeHandler()
+
 	v1 := app.Group("/api/v1")
 	{
-		v1.GET("/ping", handler.PingHandler)
+		v1.POST("/", handler.CreateRedirect)
 	}
 }
