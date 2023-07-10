@@ -60,5 +60,5 @@ func CreateRedirect(ctx *gin.Context) {
 		return
 	}
 
-	response.HttpSuccess(ctx, "short url successful created", redirect)
+	response.HttpSuccess(ctx, "short url successfully created", redirect)
 }
