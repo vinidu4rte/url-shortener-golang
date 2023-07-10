@@ -10,6 +10,7 @@ func InitializeRoutes(app *gin.Engine) {
 
 	v1 := app.Group("/api/v1")
 	{
+		v1.GET("/:shortUrl", handler.Redirect)
 		v1.POST("/", handler.CreateRedirect)
 	}
 }
